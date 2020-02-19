@@ -1,8 +1,3 @@
 ### How to run it
 
-```
-pip install Flask
-python app.py
-
-POST http://127.0.0.1:5000/v1/budget/
-```
+http://10.1.67.195:5000/
