@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>BUDGET System</h1>
+        <h2>Add & update a budge <span style="color:blue;" id="messageBox"></span></h2>
+        <hr/>
+        <div>
+            <span>year/month(YYYYMM)</span>
+            <input id="date" type="number" oninput="if(value.length>6)value=value.slice(0,6)" value="2020202" />
+            &nbsp;
+            <span>$</span>
+            <input id="amount" type="number" min="0" value="20000" />
+            <button id="submit">SUBMIT</button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="./index.js"></script>
+        <script src="./click.js"></script>
+    </body>
+</html>
