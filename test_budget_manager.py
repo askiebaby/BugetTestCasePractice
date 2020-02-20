@@ -84,43 +84,43 @@ class TestBugetQuery5(unittest.TestCase):
         self.assertEqual(self.b.query_budget('20200131', '20200202'), 1002)
 
 
-class TestBugetQuery5(unittest.TestCase):
+class TestBugetQuery6(unittest.TestCase):
     def setUp(self):
-        self.b = BugetManager('test_query5.db')
+        self.b = BugetManager('test_query6.db')
         self.b.create_budget('202001', 31000)
         self.b.create_budget('202002', 29)
         self.b.create_budget('202003', 62000)
 
     def tearDown(self):
-        os.remove('test_query5.db')
+        os.remove('test_query6.db')
 
     def test_query_partial_cross_3_month(self):
         self.assertEqual(self.b.query_budget('20200131', '20200301'), 3029)
 
 
-class TestBugetQuery5(unittest.TestCase):
+class TestBugetQuery7(unittest.TestCase):
     def setUp(self):
-        self.b = BugetManager('test_query5.db')
+        self.b = BugetManager('test_query7.db')
         self.b.create_budget('201912', 62000)
         self.b.create_budget('202001', 31000)
         self.b.create_budget('202002', 29)
 
     def tearDown(self):
-        os.remove('test_query5.db')
+        os.remove('test_query7.db')
 
     def test_query_partial_cross_year(self):
         self.assertEqual(self.b.query_budget('20191231', '20200101'), 3000)
 
 
-class TestBugetQuery6(unittest.TestCase):
+class TestBugetQuery8(unittest.TestCase):
     def setUp(self):
-        self.b = BugetManager('test_query5.db')
+        self.b = BugetManager('test_query8.db')
         self.b.create_budget('201912', 62000)
         self.b.create_budget('202001', 31000)
         self.b.create_budget('202002', 29)
 
     def tearDown(self):
-        os.remove('test_query5.db')
+        os.remove('test_query8.db')
 
     def test_query_not_exist(self):
         self.assertEqual(self.b.query_budget('20000101', '20000102'), 0)
