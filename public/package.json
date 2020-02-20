@@ -1,0 +1,27 @@
+{
+  "name": "testable",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest --verbose /public/test",
+    "test-cucumber": "cucumber-js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chenfengyuan/datepicker": "^1.0.9",
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "lowdb": "^1.0.0"
+  },
+  "devDependencies": {
+    "cucumber": "^6.0.5",
+    "jest": "^25.1.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [],
+  "description": ""
+}
