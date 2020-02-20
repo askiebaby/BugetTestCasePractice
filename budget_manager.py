@@ -1,6 +1,9 @@
 import sqlite3
+from datetime import datetime, timedelta
+from calendar import monthrange
 
-class BugetSetter(object):
+
+class BugetManager(object):
     STATUS_CODE_CREATED = 0
     STATUS_CODE_UPDATED = 1
 
@@ -36,3 +39,35 @@ class BugetSetter(object):
             cur = con.cursor()
             cur.execute("SELECT * FROM BUDGET WHERE DATE=:DATE", {"DATE": date})
             return cur.fetchone()
+
+    def fetch_all(self):
+        with sqlite3.connect(self._db_path) as con:
+            cur = con.cursor()
+            cur.execute("SELECT * FROM BUDGET")
+            return cur.fetchall()
+
+    def query_budget(self, start_date, end_date):
+
+        amount_list = self.fetch_all()
+        if not amount_list:
+            return 0
+
+        amount_table = dict()  # datetime: YYMM -> amount
+        for t in amount_list:
+            amount_table[t[0]] = t[1]
+
+        start_dt = datetime.strptime(start_date, '%Y%m%d')
+        end_dt = datetime.strptime(end_date, '%Y%m%d')
+
+        d = start_dt
+        total_amount = 0
+        while d <= end_dt:
+            amount = amount_table.get(d.strftime('%Y%m'), 0)
+            amount_per_day = amount / self.month_day(d.year, d.month)
+            total_amount += amount_per_day
+            d += timedelta(days=1)
+
+        return total_amount
+
+    def month_day(self, year, month):
+        return monthrange(year, month)[1]
