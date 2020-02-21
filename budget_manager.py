@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from calendar import monthrange
 
 
-class BugetManager(object):
+class BudgetManager(object):
     STATUS_CODE_CREATED = 0
     STATUS_CODE_UPDATED = 1
 

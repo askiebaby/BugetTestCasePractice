@@ -1,4 +1,4 @@
-from budget_manager import BugetManager
+from budget_manager import BudgetManager
 
 import unittest
 import os
@@ -6,7 +6,7 @@ import os
 
 class TestBugetSet(unittest.TestCase):
     def setUp(self):
-        self.b = BugetManager('test_set.db')
+        self.b = BudgetManager('test_set.db')
 
     def tearDown(self):
         os.remove('test_set.db')
@@ -25,7 +25,7 @@ class TestBugetSet(unittest.TestCase):
 
 class TestBugetQuery(unittest.TestCase):
     def setUp(self):
-        self.b = BugetManager('test_query.db')
+        self.b = BudgetManager('test_query.db')
 
     def tearDown(self):
         os.remove('test_query.db')

@@ -2,9 +2,9 @@ from flask import Flask, escape, request, Response, send_from_directory
 from flask_cors import CORS
 import json
 
-from budget_manager import BugetManager
+from budget_manager import BudgetManager
 
-budget_manager = BugetManager(db_path='budget.db')
+budget_manager = BudgetManager(db_path='budget.db')
 app = Flask(__name__, static_url_path='', static_folder='public')
 CORS(app)
 
@@ -26,11 +26,11 @@ def set_budget():
     if not budget_manager.check_date_exist(date):
         budget_manager.create_budget(date, amount)
         message = 'Create succeeded'
-        code = BugetManager.STATUS_CODE_CREATED
+        code = BudgetManager.STATUS_CODE_CREATED
     else:
         budget_manager.update_budget(date, amount)
         message = 'Update succeeded'
-        code = BugetManager.STATUS_CODE_UPDATED
+        code = BudgetManager.STATUS_CODE_UPDATED
 
     resp = {
         'message': message,
