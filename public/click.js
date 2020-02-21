@@ -1,4 +1,6 @@
-async function clickcb(){
+import postbudge from './api.js'
+
+export default async function clickcb(){
     const date = document.querySelector('#date').value
     const amount = document.querySelector('#amount').value
     const messageBox = document.getElementById("messageBox")
@@ -14,10 +16,4 @@ async function clickcb(){
 
 
     return postbudgeResult;
-}
-
-function postbudge (budge) {
-    return axios.post('/v1/budget/', budge).then(res=>{
-        return res.data
-    })
 }
