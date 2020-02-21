@@ -23,4 +23,9 @@ describe('Output character', () => {
     const output = outputs.outputChar('ab');
     expect(output).toBe('A-Bb');
   });
+
+  test('Input_abC', () => {
+    const output = outputs.outputChar('abC');
+    expect(output).toBe('A-Bb-Ccc');
+  });
 });
